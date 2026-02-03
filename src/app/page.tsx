@@ -20,7 +20,7 @@ export default function Home() {
       <Navbar />
 
       {/* Main Content */}
-      <main className="relative overflow-hidden">
+      <main className="relative overflow-hidden pt-24 sm:pt-28">
         <HeroSection />
         <AboutSection />
         <ProjectLabSection />
