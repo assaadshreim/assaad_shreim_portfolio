@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ExternalLink, Github, Zap, Activity } from 'lucide-react'
 import { GlassCard, ScrollReveal } from '@/components/ui'
-import { PROJECTS } from '@/constants'
+import { PROJECTS, SITE_CONFIG } from '@/constants'
 import { cn } from '@/lib/utils'
 
 interface ProjectCardProps {
@@ -267,15 +267,19 @@ export function ProjectLabSection() {
         {/* View all button */}
         <ScrollReveal variant="slideUp" delay={0.5}>
           <div className="text-center mt-12">
-            <motion.button
+            <motion.a
+              href={SITE_CONFIG.github}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 border border-border rounded-lg font-medium text-text-secondary hover:text-text-primary hover:border-accent-primary/50 transition-all"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               suppressHydrationWarning
+              aria-label="View all projects on GitHub"
             >
               View All Projects
               <ExternalLink className="w-4 h-4" />
-            </motion.button>
+            </motion.a>
           </div>
         </ScrollReveal>
       </div>
