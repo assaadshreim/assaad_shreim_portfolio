@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { ContactEmailTemplate } from '@/components/email/ContactEmailTemplate'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -16,6 +14,17 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       )
     }
+
+    const apiKey = process.env.RESEND_API_KEY
+    if (!apiKey) {
+      console.error('Resend API key is missing')
+      return NextResponse.json(
+        { error: 'Email service not configured' },
+        { status: 500 }
+      )
+    }
+
+    const resend = new Resend(apiKey)
 
     // Send email to your address
     const { data, error } = await resend.emails.send({
