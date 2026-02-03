@@ -129,7 +129,7 @@ export function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <h1 className="text-display-xl font-display font-bold tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-display-xl font-display font-bold tracking-tight">
                 <span 
                   className={cn(
                     'inline-block bg-gradient-to-r from-white via-white to-text-secondary bg-clip-text text-transparent',
@@ -150,7 +150,7 @@ export function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.8 }}
             >
-              <h2 className="text-display-md font-display font-medium text-text-secondary">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-display-md font-display font-medium text-text-secondary">
                 <span className={cn(roleScrambling && 'text-accent-secondary')}>
                   {roleText}
                 </span>
@@ -163,25 +163,25 @@ export function HeroSection() {
 
           {/* Tagline */}
           <motion.p
-            className="text-xl md:text-2xl text-text-secondary max-w-2xl mb-12 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-text-secondary max-w-2xl mb-12 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.8 }}
           >
             {HERO_TITLES.tagline}
-            <Sparkles className="inline-block w-5 h-5 ml-2 text-accent-primary" />
+            <Sparkles className="inline-block w-4 sm:w-5 h-4 sm:h-5 ml-2 text-accent-primary" />
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-wrap gap-4"
+            className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 2 }}
           >
             <a
               href="#contact"
-              className="group relative overflow-hidden px-8 py-4 bg-accent-primary text-background font-semibold rounded-lg transition-all duration-300 hover:shadow-glow"
+              className="group relative overflow-hidden px-6 sm:px-8 py-3 sm:py-4 bg-accent-primary text-background font-semibold rounded-lg transition-all duration-300 hover:shadow-glow text-sm sm:text-base w-full sm:w-auto text-center"
             >
               <span className="relative z-10">Contact Me</span>
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -191,7 +191,7 @@ export function HeroSection() {
               href={SITE_CONFIG.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group px-8 py-4 border border-border hover:border-accent-primary/50 text-text-primary rounded-lg transition-all duration-300 hover:bg-surface-hover"
+              className="group px-6 sm:px-8 py-3 sm:py-4 border border-border hover:border-accent-primary/50 text-text-primary rounded-lg transition-all duration-300 hover:bg-surface-hover text-sm sm:text-base w-full sm:w-auto text-center"
             >
               <span>View GitHub</span>
             </a>

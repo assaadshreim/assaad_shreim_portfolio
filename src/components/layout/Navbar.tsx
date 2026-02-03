@@ -57,7 +57,7 @@ export function Navbar() {
         <div className="container mx-auto px-6">
           <GlassCard
             className={cn(
-              'flex items-center justify-between px-6 py-3 transition-all duration-300',
+              'flex items-center justify-between px-3 sm:px-6 py-3 transition-all duration-300',
               isScrolled && 'shadow-glass'
             )}
             variant={isScrolled ? 'strong' : 'default'}
@@ -69,12 +69,12 @@ export function Navbar() {
                 e.preventDefault()
                 handleNavClick('#home')
               }}
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-2 sm:gap-3 group"
             >
-              <div className="w-10 h-10 rounded-lg bg-accent-primary/10 flex items-center justify-center group-hover:bg-accent-primary/20 transition-colors">
-                <Terminal className="w-5 h-5 text-accent-primary" />
+              <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-accent-primary/10 flex items-center justify-center group-hover:bg-accent-primary/20 transition-colors flex-shrink-0">
+                <Terminal className="w-4 sm:w-5 h-4 sm:h-5 text-accent-primary" />
               </div>
-              <span className="font-display font-bold text-lg text-text-primary">
+              <span className="font-display font-bold text-base sm:text-lg text-text-primary whitespace-nowrap">
                 {SITE_CONFIG.name}
                 <span className="text-accent-primary">.</span>
               </span>
