@@ -97,25 +97,25 @@ export function HeroSection() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-6 py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-16 sm:py-20">
         <div className="max-w-6xl mx-auto">
           {/* Status Bar */}
           <motion.div
-            className="flex items-center gap-4 mb-8"
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-6 sm:mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <GlassCard className="inline-flex items-center gap-2 px-4 py-2">
-              <div className="pulse-indicator w-2 h-2 rounded-full bg-green-500" />
-              <span className="text-sm font-mono text-text-secondary">
+            <GlassCard className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm whitespace-nowrap">
+              <div className="pulse-indicator w-2 h-2 rounded-full bg-green-500 flex-shrink-0" />
+              <span className="text-xs sm:text-sm font-mono text-text-secondary">
                 {SITE_CONFIG.status}
               </span>
             </GlassCard>
             
-            <GlassCard className="inline-flex items-center gap-2 px-4 py-2">
-              <Terminal className="w-4 h-4 text-accent-primary" />
-              <span className="text-sm font-mono text-text-muted">
+            <GlassCard className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm whitespace-nowrap">
+              <Terminal className="w-3 sm:w-4 h-3 sm:h-4 text-accent-primary flex-shrink-0" />
+              <span className="font-mono text-text-muted">
                 system.online
               </span>
             </GlassCard>
@@ -220,10 +220,10 @@ export function HeroSection() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 2.4 + index * 0.1 }}
                 >
-                  <div className="text-2xl md:text-3xl font-bold text-accent-primary font-mono">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-accent-primary font-mono">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-text-muted mt-1">{stat.label}</div>
+                  <div className="text-xs sm:text-sm text-text-muted mt-1">{stat.label}</div>
                 </motion.div>
               </GlassCard>
             ))}
