@@ -1,119 +1,104 @@
-# Assaad Portfolio - Data Architect Theme
+# Assaad Shreim — Portfolio
 
-A cutting-edge, high-performance portfolio built with Next.js 14, featuring glassmorphism design, interactive animations, and a "Data Architect" aesthetic.
+Professional portfolio for Assaad Shreim, a junior computer engineer focused on full‑stack software development. Built with Next.js, Tailwind CSS, and motion‑driven UI details to highlight projects, experience, and contact information.
 
-## ✨ Features
+Live site: https://assaadshreim.netlify.app
 
-- **Text Scramble/Hacker Effect** - Dynamic text decoding animation on the hero section
-- **Interactive Grid Background** - GSAP-powered particle network that reacts to mouse movement
-- **Glassmorphic Design** - Deep blurs, backdrop filters, and translucent cards
-- **3D Tilt Project Cards** - Framer Motion powered cards with data-stream border animations
-- **Animated Skill Bars** - Live system status-style progress indicators
-- **Printing Resume Button** - Terminal-style animation when generating PDF
-- **Fluid Custom Cursor** - Shape-morphing cursor that reacts to interactive elements
-- **Scroll-Triggered Reveals** - Content renders as you scroll through sections
+---
 
-## 🛠 Tech Stack
+## ✨ Highlights
 
-- **Framework:** Next.js 14 (App Router)
-- **Language:** TypeScript
+- **Glassmorphism UI** with layered depth and soft gradients
+- **Text scramble hero** for a modern, technical feel
+- **Interactive grid background** with GSAP motion
+- **3D tilt project cards** with data‑stream border effects
+- **Resume generator animation** with terminal‑style logs
+- **Responsive layout** tuned for small screens
+- **Contact form** with Resend email delivery
+
+---
+
+## 🧱 Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript + React 18
 - **Styling:** Tailwind CSS
-- **Animations:** 
-  - GSAP (scroll triggers, mouse parallax)
-  - Framer Motion (micro-interactions, transitions)
-- **Icons:** Lucide React
-- **Utilities:** clsx, tailwind-merge
+- **Animations:** GSAP + Framer Motion
+- **Email:** Resend
 
-## 📁 Project Structure
+---
+
+## 🚀 Local Setup
+
+1. Install dependencies:
+   - `npm install`
+2. Start development server:
+   - `npm run dev`
+3. Open http://localhost:3000
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env.local` file at the project root:
+
+- `RESEND_API_KEY` — Resend API key
+- `CONTACT_EMAIL` — Destination inbox for form submissions
+
+---
+
+## 📂 Project Structure
 
 ```
 src/
 ├── app/
-│   ├── globals.css      # Global styles & Tailwind layers
-│   ├── layout.tsx       # Root layout with fonts & metadata
-│   └── page.tsx         # Main page component
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
 ├── components/
-│   ├── ui/              # Reusable UI components
-│   │   ├── GlassCard.tsx
-│   │   ├── FluidCursor.tsx
-│   │   ├── AnimatedGrid.tsx
-│   │   ├── ScrollReveal.tsx
-│   │   ├── SkillBar.tsx
-│   │   └── ResumeButton.tsx
-│   ├── layout/          # Layout components
-│   │   ├── Navbar.tsx
-│   │   └── Footer.tsx
-│   └── sections/        # Page sections
-│       ├── HeroSection.tsx
-│       ├── AboutSection.tsx
-│       ├── ProjectLabSection.tsx
-│       ├── SkillsSection.tsx
-│       └── ContactSection.tsx
-├── hooks/               # Custom React hooks
-│   ├── useTextScramble.ts
-│   ├── useMousePosition.ts
-│   └── useScrollTrigger.ts
-├── constants/           # Static data & configuration
+│   ├── layout/
+│   ├── sections/
+│   └── ui/
+├── constants/
 │   └── data.ts
-└── lib/                 # Utility functions
-    └── utils.ts
+├── hooks/
+└── lib/
 ```
-
-## 🚀 Getting Started
-
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-2. **Run the development server:**
-   ```bash
-   npm run dev
-   ```
-
-3. **Open your browser:**
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-## 📝 Customization
-
-### Personal Information
-Edit `src/constants/data.ts` to update:
-- Name and title
-- Contact information
-- Projects and skills
-- Experience and services
-
-### Theme Colors
-Modify `tailwind.config.ts` to customize:
-- Accent colors (primary, secondary, tertiary)
-- Background colors
-- Glass morphism effects
-- Animation timings
-
-### Resume
-Place your resume PDF at `public/resume.pdf` or update the path in the ResumeButton component.
-
-## 🎨 Design Tokens
-
-| Token | Value | Usage |
-|-------|-------|-------|
-| `accent-primary` | `#00f5d4` | Primary highlights, CTAs |
-| `accent-secondary` | `#7b61ff` | Secondary accents |
-| `accent-tertiary` | `#ff6b6b` | Alerts, special elements |
-| `background` | `#0a0a0f` | Main background |
-| `glass` | `rgba(255,255,255,0.05)` | Card backgrounds |
-
-## 📦 Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
-## 📄 License
-
-MIT License - Feel free to use this template for your own portfolio!
 
 ---
 
-Built with ❤️ using Next.js & Tailwind CSS
+## 📝 Content Updates
+
+All profile content lives in:
+
+- `src/constants/data.ts`
+
+Update name, skills, experience, projects, and contact info there.
+
+---
+
+## 📦 Scripts
+
+- `npm run dev` — Development server
+- `npm run build` — Production build
+- `npm run start` — Start production server
+- `npm run lint` — Lint checks
+
+---
+
+## ✅ Deployment
+
+### Netlify
+- Build command: `npm run build`
+- Publish directory: `.next`
+
+### Render
+- Build command: `npm run build`
+- Start command: `npm start`
+- Publish directory: leave empty
+
+---
+
+## 📄 License
+
+MIT
