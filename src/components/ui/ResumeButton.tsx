@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Download, FileText, Terminal, CheckCircle2, Loader2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -27,6 +28,7 @@ export function ResumeButton({ className, resumeUrl = '/resume.pdf' }: ResumeBut
   const [state, setState] = useState<ButtonState>('idle')
   const [visibleLogs, setVisibleLogs] = useState<number>(0)
   const [progress, setProgress] = useState(0)
+  const [isMounted, setIsMounted] = useState(false)
   const timeoutRef = useRef<NodeJS.Timeout[]>([])
 
   const clearTimeouts = () => {
@@ -66,6 +68,7 @@ export function ResumeButton({ className, resumeUrl = '/resume.pdf' }: ResumeBut
   }
 
   useEffect(() => {
+    setIsMounted(true)
     return () => clearTimeouts()
   }, [])
 
@@ -175,51 +178,64 @@ export function ResumeButton({ className, resumeUrl = '/resume.pdf' }: ResumeBut
       </motion.button>
 
       {/* Terminal output panel */}
-      <AnimatePresence>
-        {(state === 'generating' || state === 'complete') && (
-          <motion.div
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[9999] w-full max-w-2xl px-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="bg-background-secondary border border-border rounded-lg overflow-hidden shadow-glass">
-              {/* Terminal header */}
-              <div className="flex items-center gap-2 px-4 py-2 bg-surface border-b border-border">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                </div>
-                <span className="text-xs font-mono text-text-muted ml-2">
-                  resume-generator.sh
-                </span>
-              </div>
+      {isMounted &&
+        createPortal(
+          <AnimatePresence>
+            {(state === 'generating' || state === 'complete') && (
+              <motion.div
+                className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+                <motion.div
+                  className="relative w-full max-w-2xl"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <div className="bg-background-secondary border border-border rounded-lg overflow-hidden shadow-glass">
+                    {/* Terminal header */}
+                    <div className="flex items-center gap-2 px-4 py-2 bg-surface border-b border-border">
+                      <div className="flex gap-1.5">
+                        <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                        <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                        <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                      </div>
+                      <span className="text-xs font-mono text-text-muted ml-2">
+                        resume-generator.sh
+                      </span>
+                    </div>
 
-              {/* Terminal body */}
-              <div className="p-4 font-mono text-xs space-y-1 max-h-48 overflow-y-auto">
-                {TERMINAL_LOGS.slice(0, visibleLogs).map((log, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className={cn(
-                      'flex items-center gap-2',
-                      log.success ? 'text-green-500' : 'text-text-secondary'
-                    )}
-                  >
-                    {log.text}
-                    {index === visibleLogs - 1 && !log.success && (
-                      <span className="inline-block w-2 h-4 bg-accent-primary animate-blink-caret" />
-                    )}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+                    {/* Terminal body */}
+                    <div className="p-4 font-mono text-xs space-y-1 max-h-60 overflow-y-auto">
+                      {TERMINAL_LOGS.slice(0, visibleLogs).map((log, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          className={cn(
+                            'flex items-center gap-2',
+                            log.success ? 'text-green-500' : 'text-text-secondary'
+                          )}
+                        >
+                          {log.text}
+                          {index === visibleLogs - 1 && !log.success && (
+                            <span className="inline-block w-2 h-4 bg-accent-primary animate-blink-caret" />
+                          )}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
     </div>
   )
 }
