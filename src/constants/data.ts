@@ -144,4 +144,5 @@ export const NAV_LINKS = [
 export const SOCIAL_LINKS = [
   { label: 'GitHub', href: 'https://github.com/assaadshreim/', icon: 'github' },
   { label: 'Instagram', href: 'https://www.instagram.com/assaad_sh3?igsh=OWN6bGIzZTZ5d3p4', icon: 'instagram' },
+  { label: 'WhatsApp', href: 'https://wa.me/96171022355', icon: 'whatsapp' },
 ]

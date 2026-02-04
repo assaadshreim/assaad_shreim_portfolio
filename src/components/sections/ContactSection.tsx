@@ -11,6 +11,7 @@ import {
   Linkedin, 
   Twitter,
   Instagram,
+  MessageCircle,
   CheckCircle2,
   Loader2,
   ArrowUpRight
@@ -73,6 +74,7 @@ export function ContactSection() {
     linkedin: Linkedin,
     twitter: Twitter,
     instagram: Instagram,
+    whatsapp: MessageCircle,
   }
 
   return (
