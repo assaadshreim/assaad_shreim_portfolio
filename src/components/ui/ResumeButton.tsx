@@ -178,10 +178,10 @@ export function ResumeButton({ className, resumeUrl = '/resume.pdf' }: ResumeBut
       <AnimatePresence>
         {(state === 'generating' || state === 'complete') && (
           <motion.div
-            className="absolute top-full left-0 right-0 mt-4 z-50"
-            initial={{ opacity: 0, y: -10, height: 0 }}
-            animate={{ opacity: 1, y: 0, height: 'auto' }}
-            exit={{ opacity: 0, y: -10, height: 0 }}
+            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[9999] w-full max-w-2xl px-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.3 }}
           >
             <div className="bg-background-secondary border border-border rounded-lg overflow-hidden shadow-glass">
