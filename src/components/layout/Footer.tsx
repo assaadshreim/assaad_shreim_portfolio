@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Heart, Github, Linkedin, Twitter, Instagram, ArrowUp, Terminal } from 'lucide-react'
+import { Heart, Github, Linkedin, Twitter, Instagram, MessageCircle, ArrowUp, Terminal } from 'lucide-react'
 import { GlassCard } from '@/components/ui'
 import { SITE_CONFIG, NAV_LINKS, SOCIAL_LINKS } from '@/constants'
 
@@ -16,6 +16,7 @@ export function Footer() {
     linkedin: Linkedin,
     twitter: Twitter,
     instagram: Instagram,
+    whatsapp: MessageCircle,
   }
 
   const currentYear = new Date().getFullYear()
@@ -47,6 +48,7 @@ export function Footer() {
               <div className="flex gap-3">
                 {SOCIAL_LINKS.map((social) => {
                   const Icon = socialIcons[social.icon]
+                  if (!Icon) return null
                   return (
                     <motion.a
                       key={social.label}
