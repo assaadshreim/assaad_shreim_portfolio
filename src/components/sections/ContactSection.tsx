@@ -185,6 +185,7 @@ export function ContactSection() {
                 <div className="flex gap-3">
                   {SOCIAL_LINKS.map((social) => {
                     const Icon = socialIcons[social.icon]
+                    if (!Icon) return null
                     return (
                       <motion.a
                         key={social.label}
