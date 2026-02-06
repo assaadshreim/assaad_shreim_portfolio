@@ -99,7 +99,7 @@ export function ContactSection() {
           <ScrollReveal variant="slideUp" delay={0.1}>
             <h2 className="text-display-lg font-display font-bold mb-4">
               <span className="bg-gradient-to-r from-white via-white to-text-secondary bg-clip-text text-transparent">
-                Let's Build Together
+                Let&rsquo;s Build Together
               </span>
             </h2>
           </ScrollReveal>
@@ -107,7 +107,7 @@ export function ContactSection() {
           <ScrollReveal variant="slideUp" delay={0.2}>
             <p className="text-lg text-text-secondary">
               Have a project in mind or want to collaborate? 
-              I'd love to hear from you.
+              I&rsquo;d love to hear from you.
             </p>
           </ScrollReveal>
         </div>

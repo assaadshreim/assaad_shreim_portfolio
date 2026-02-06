@@ -158,7 +158,7 @@ export function AnimatedGrid({
       window.removeEventListener('resize', resize)
       cancelAnimationFrame(animationRef.current)
     }
-  }, [dots, mousePosition, interactive, glowIntensity, dotSize])
+  }, [dots, mousePosition, interactive, glowIntensity, dotSize, gridSize])
 
   return (
     <canvas
