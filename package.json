@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "pages:build": "next build && npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "next lint"
   },
@@ -15,20 +16,21 @@
     "framer-motion": "^11.0.0",
     "gsap": "^3.12.5",
     "lucide-react": "^0.400.0",
-    "next": "^16.1.6",
+    "next": "15.5.2",
     "postcss": "^8.4.0",
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "resend": "^6.9.1",
     "tailwind-merge": "^2.2.0",
     "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.12",
     "@types/node": "^25.1.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "eslint": "^9.39.2",
-    "eslint-config-next": "^16.1.6",
+    "eslint-config-next": "^15.5.2",
     "typescript": "^5.3.0"
   }
 }
